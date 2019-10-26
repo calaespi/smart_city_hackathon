@@ -69,4 +69,20 @@
 </body>
 
 <script src="js/mapa-bicis.js" charset="utf-8"></script>
+<script src="js/prevision-bases.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+    let nav = document.getElementsByClassName('nav-tabs')[0];
+    nav.childNodes[0].addEventListener('click', ()=> {
+        //Como es el por defecto se carga directamente
+    });
+
+    nav.childNodes[1].addEventListener('click', ()=> {
+        cargar_prevision();
+    });
+
+    nav.childNodes[2].addEventListener('click', ()=> {
+        //falta aún
+    });
+</script>
 </html>

@@ -1,17 +1,17 @@
 let graph = document.getElementById('BaseGraph');
 let btn_cerrar = document.getElementById('cerrar_g');
 
-
-let marcadores_bases = [];
-
 btn_cerrar.addEventListener('click', ()=> {
     graph.classList.remove('mostrar');
     graph.classList.add('amagar');
 })
 
-function anyadir_marcadores(data) {
+let bases_actuales;
+let marcadores_bases = [];
 
-    let bases = data.hits.hits;
+
+function anyadir_marcadores(bases) {
+
     bases.forEach((base) => {
         base = base._source;
         if(base.porcentaje_ocupacion < 0.1) {
@@ -50,7 +50,8 @@ $.ajax({ url: 'controladores/mapas.php?action=getBasesExistentes',
              dataType: 'json',
              success: function(response) {
                  console.log(response);
-                anyadir_marcadores(response);
+                 bases_actuales = response.hits.hits
+                anyadir_marcadores(bases_actuales);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 console.log(errorThrown)
