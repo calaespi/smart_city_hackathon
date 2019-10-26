@@ -13,6 +13,7 @@ class JSONGetBasesExistentes {
 
         $res_json['from'] = 0;
         $res_json['size'] = $this::NUM_BASES;
+        $res_json['sort'] = $this->crearSort();
         $res_json['query'] = $this->crearQuery();
         $res_json['aggs'] = $this->crearAggs();
 
@@ -64,6 +65,14 @@ class JSONGetBasesExistentes {
         $res_aggs['unique_ids']['terms']['field'] = 'id';
 
         return $res_aggs;
+    }
+    
+    private function crearSort() {
+        $res_sort = array();
+        
+        $res_sort['timestamp'] = 'desc';
+        
+        return $res_sort;
     }
 
 }

@@ -19,6 +19,8 @@ function anyadir_marcadores(data) {
             var color = 'orange';
         } else if(base.porcentaje_ocupacion > 0.9) {
             var color = 'blue';
+        } else {
+            var color = 'black';
         }
 
         let latlong = base.location.split(',');
@@ -41,24 +43,20 @@ graph.childNodes[3].src = './img/test_graph.jpeg';
 console.log(graph.childNodes[2]);
 }
 
-function cargar_bases() {
-    $.ajax({ url: 'controladores/mapas.php?action=getBasesExistentes',
+// SET UP MAPA
+const mymap = L.map('map').setView([39.987556,-0.0468827], 13);
+
+$.ajax({ url: 'controladores/mapas.php?action=getBasesExistentes',
              type: 'POST',
              dataType: 'json',
              success: function(response) {
+                 console.log(response);
                 anyadir_marcadores(response);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 console.log(errorThrown)
             }
     });
-}
-
-
-// SET UP MAPA
-const mymap = L.map('map').setView([39.987556,-0.0468827], 13);
-
-mymap.on('load', cargar_bases);
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
