@@ -27,10 +27,10 @@ class JSONGetAverageBases {
         $res_aggs['by_id']['terms']['field'] = 'id';
         $res_aggs['by_id']['terms']['size'] = $this::NUM_BASES;
         
-        $res_aggs['aggs'] = array();
-        $res_aggs['aggs']['avg_porcentaje_ocupacion'] = array();
-        $res_aggs['aggs']['avg_porcentaje_ocupacion']['avg'] = array();
-        $res_aggs['aggs']['avg_porcentaje_ocupacion']['avg']['field'] = 'porcentaje_ocupacion';
+        $res_aggs['by_id']['aggs'] = array();
+        $res_aggs['by_id']['aggs']['avg_porcentaje_ocupacion'] = array();
+        $res_aggs['by_id']['aggs']['avg_porcentaje_ocupacion']['avg'] = array();
+        $res_aggs['by_id']['aggs']['avg_porcentaje_ocupacion']['avg']['field'] = 'porcentaje_ocupacion';
         
         return $res_aggs;
     }

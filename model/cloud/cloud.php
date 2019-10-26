@@ -3,6 +3,7 @@
 
 require (__DIR__.'/json/JSONGetBasesExistentes.php');
 require (__DIR__.'/json/JSONGetLimiteBases.php');
+require (__DIR__.'/json/JSONGetAverageBases.php');
 
 // Clase que realizara peticiones a la nube
 class Cloud {

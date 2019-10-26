@@ -39,7 +39,6 @@ graph.classList.remove('amagar');
 graph.classList.add('mostrar');
 
 graph.childNodes[3].src = './img/test_graph.jpeg';
-console.log(graph.childNodes[2]);
 }
 
 // SET UP MAPA
@@ -49,7 +48,6 @@ $.ajax({ url: 'controladores/mapas.php?action=getBasesExistentes',
              type: 'POST',
              dataType: 'json',
              success: function(response) {
-                 console.log(response);
                  bases_actuales = response.hits.hits
                 anyadir_marcadores(bases_actuales);
             },
