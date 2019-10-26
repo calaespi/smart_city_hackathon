@@ -2,6 +2,7 @@
 
 
 require (__DIR__.'/json/JSONGetBasesExistentes.php');
+require (__DIR__.'/json/JSONGetLimiteBases.php');
 
 // Clase que realizara peticiones a la nube
 class Cloud {
@@ -56,11 +57,15 @@ class Cloud {
 
         $json_data = $this->make_request($json->makeJson(), $this::URL_INDEX_BASES, "GET");
         
-        // $response = $json->getDataResponse($json_data);
-        //
-        // return $json_data;
         return $json_data;
-
-
+    }
+    
+    // Hace una peticion para obtener el limite de las bases
+    public function getLimiteBases() {
+        $json = new JSONGetLimiteBases();
+        
+        $json_data = $this->make_request($json->makeJson(), $this::URL_INDEX_BASES, "GET");
+        
+        return $json_data;
     }
 }
