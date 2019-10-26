@@ -1,14 +1,14 @@
 <?php
 
-class bases
+class Base
 {
-    public $id = "";
-    public $punto = "";
-    public $puestos = "";
-    public $ocupados = "";
-    public $location = "";
-    public $timestamp = "";
-    public $porcentaje_ocupacion = "";
+    private $id = "";
+    private $punto = "";
+    private $puestos = "";
+    private $ocupados = "";
+    private $location = "";
+    private $timestamp = "";
+    private $porcentaje_ocupacion = "";
 
     //Setters
     function set_id($id)

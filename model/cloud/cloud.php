@@ -1,6 +1,6 @@
 <?php
 
-require 'json/JSONGetBasesExistentes.php';
+require (HOMEDIR.'/model/cloud/json/JSONGetBasesExistentes.php');
 
 // Clase que realizara peticiones a la nube
 class Cloud {
@@ -53,7 +53,12 @@ class Cloud {
     public function getBasesExistentes() {
         $json = new JSONGetBasesExistentes();
         
-        return $this->make_request($json->makeJson(), $this::URL_INDEX_BASES, "GET");
+        $json_data = $this->make_request($json->makeJson(), $this::URL_INDEX_BASES, "GET");
+        $json_data = json_decode($json_data, true);
+        
+        $response = $json->getDataResponse($json_data);
+        
+        return $response;
         
     }
 }

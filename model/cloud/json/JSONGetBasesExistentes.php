@@ -1,5 +1,7 @@
 <?php
 
+require_once (HOMEDIR.'/model/domain/base.php');
+
 // Clase que genera el JSON para la descarga de bases existentes
 class JSONGetBasesExistentes {
     
@@ -17,6 +19,32 @@ class JSONGetBasesExistentes {
         
         return $res_json;
         
+    }
+    
+    // Procesa la respuesta
+    public function getDataResponse($json) {
+        $list = array();
+        
+        $hits = $json["hits"]["hits"];
+        
+        for ($i=0; $i<count($hits); $i++) {
+            $data = $hits[$i]['_source'];
+            
+            $location = explode(",", $data['location']);
+            $location = array(floatval($location[0]), floatval($location[1]));
+            
+            $base = new Base();
+            $base->set_id($data['id']);
+            $base->set_punto($data['punto']);
+            $base->set_puestos($data['puestos']);
+            $base->set_ocupados($data['ocupados']);
+            $base->set_location($location);
+            $base->set_timestamp($data['timestamp']);
+            $base->set_porcentaje_ocupacion($data['porcentaje_ocupacion'] or 0);
+            array_push($list, $base);
+        }
+        
+        return $list;
     }
     
     // Crea el nodo query

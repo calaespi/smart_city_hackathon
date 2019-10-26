@@ -1,7 +1,9 @@
 <?php
 
+define('HOMEDIR',__DIR__);
+
 // Se importa las librerias
-require 'model/cloud/cloud.php';
+require (HOMEDIR.'/model/cloud/cloud.php');
 
 $cloud = new Cloud();
 
