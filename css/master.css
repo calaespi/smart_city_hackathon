@@ -1,0 +1,29 @@
+.mostrar {
+    display: block;
+}
+.amagar {
+    display: none !important;
+}
+#BaseGraph {
+    position: absolute;
+    height: 400px;
+    width: 40%;
+    right: 0;
+    bottom: 0px;
+    z-index: 314159;
+    background-color: white;
+}
+#BaseGraph img {
+    width: 100%;
+    display: block;
+    transform: translate(0%, 45%);
+}
+#mapa {
+    z-index: 1;
+}
+.relative {
+    position: relative;
+}
+#cerrar_g {
+    float: right;
+}

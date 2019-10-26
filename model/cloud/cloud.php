@@ -1,16 +1,17 @@
 <?php
 
-require (HOMEDIR.'/model/cloud/json/JSONGetBasesExistentes.php');
+
+require (__DIR__.'/json/JSONGetBasesExistentes.php');
 
 // Clase que realizara peticiones a la nube
 class Cloud {
-    
+
     // Constantes
     private const URL_INDEX_BASES = "https://7d966d2d203744479c494e78362ce5e8.eu-west-1.aws.found.io:9243/bases_hackathon/_search/";
 
     // Atributos
     private static $instance;
-    
+
     // Hace una peticion a la nube
     private function make_request($json, $url, $method) {
 	$curl = curl_init();
@@ -35,30 +36,31 @@ class Cloud {
 	$err = curl_error($curl);
 
 	curl_close($curl);
-        
+
         return $response;
     }
-    
+
     // Obtiene una instancia unica (Singleton);
     public static function getInstance() {
         if (!self::$instance instanceof self) {
             self::$instance = new self();
         }
-        
+
         return self::$instance;
     }
-    
-    
+
+
     // Hace una peticion para obtener las bases existentes
     public function getBasesExistentes() {
         $json = new JSONGetBasesExistentes();
-        
+
         $json_data = $this->make_request($json->makeJson(), $this::URL_INDEX_BASES, "GET");
-        $json_data = json_decode($json_data, true);
         
-        $response = $json->getDataResponse($json_data);
-        
-        return $response;
-        
+        // $response = $json->getDataResponse($json_data);
+        //
+        // return $json_data;
+        return $json_data;
+
+
     }
 }
