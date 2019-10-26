@@ -11,17 +11,17 @@ btn_cerrar.addEventListener('click', ()=> {
 })
 
 function anyadir_marcadores(data) {
+    
     let bases = data.hits.hits;
-
     bases.forEach((base) => {
-
+        base = base._source;
         if(base.porcentaje_ocupacion < 0.1) {
             var color = 'orange';
         } else if(base.porcentaje_ocupacion > 0.9) {
             var color = 'blue';
         }
-
-        let latlong = data.location.slpit(',');
+        
+        let latlong = base.location.split(',');
         let circle = L.circle(latlong, {
         	color,
         	fillColor: '#fdfdfd',
