@@ -16,7 +16,10 @@
           crossorigin=""></script>
     </head>
     <body>
-        <h1>VISUALIZACIONES</h1>
+        <div class="titulo">
+            <h1>Análisis con ElasticSearch</h1>
+            <h3>VISUALIZACIONES</h3>
+        </div>
         <ul class="nav nav-tabs">
             <li role="presentation" class="active"><a href="#1" data-toggle="tab">Mapa disponibilidad</a></li>
             <li role="presentation"><a href="#2" data-toggle="tab">Bases bonificadas</a></li>
@@ -29,7 +32,9 @@
                     <h3>MAPA</h3>
 
                     <div id="BaseGraph" class="amagar">
-                        <div id="cerrar_g" class="btn btn-default">X</div>
+                        <div id="cerrar_g" class="btn btn-default">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </div>
                         <img src="" alt="grafico kibana">
                     </div>
                     <div id="map" style="height: 400px;">
