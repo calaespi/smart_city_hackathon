@@ -22,7 +22,6 @@ function anyadir_marcadores(data) {
         }
 
         let latlong = data.location.slpit(',');
-
         let circle = L.circle(latlong, {
         	color,
         	fillColor: '#fdfdfd',
