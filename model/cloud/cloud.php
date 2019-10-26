@@ -68,4 +68,12 @@ class Cloud {
         
         return $json_data;
     }
+    
+    public function getAverageBases() {
+        $json = new JSONGetAverageBases();
+        
+        $json_data = $this->make_request($json->makeJson(), $this::URL_INDEX_BASES, "GET");
+        
+        return $json_data;
+    }
 }
