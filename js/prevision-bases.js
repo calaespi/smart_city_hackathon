@@ -1,12 +1,12 @@
 const PONER = 'poner';
 const QUITAR = 'quitar';
-function crear_prevision(tipo) {
+function crear_prevision(tipo, id, nombre) {
     let prevision = document.createElement('div');
     prevision.classList.add('bonificacion');
     prevision.classList.add(tipo);
 
-    prevision.innerHTML = 'RANGO DE TIEMPO';
-    
+    prevision.innerHTML = `${id}: ${nombre}`;
+
     document.getElementById('previsiones').appendChild(prevision);
 
 }
@@ -21,9 +21,9 @@ function crear_prevision(tipo) {
                  prevision = response.aggregations.by_id.buckets;
                  prevision.forEach((base)=>{
                     if(base.avg_porcentaje_ocupacion.value <= 0.1) {
-                        crear_prevision(PONER);
+                        crear_prevision(PONER, base);
                     } else if (base.avg_porcentaje_ocupacion.value >= 0.9) {
-                        crear_prevision(QUITAR);
+                        crear_prevision(QUITAR, base);
                     }
                 });
             },
@@ -32,15 +32,20 @@ function crear_prevision(tipo) {
             }
     });
 
-    
 
 
 
-    /*bases_actuales.forEach((element) => {
+
+    bases_actuales.forEach((element) => {
         let base = base._source;
 
+        if(base.porcentaje_ocupacion <= 0.1) {
+            crear_prevision(PONER, base.id);
+        } else if(base.porcentaje_ocupacion >= 0.9) {
+            crear_prevision(QUITAR, base.puesto);
+        }
         log(base);
-    });*/
+    });
 
 
 
