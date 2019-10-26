@@ -1,7 +1,6 @@
-let ejunt = [39.987556,-0.0468827];
-
 let graph = document.getElementById('BaseGraph');
 let btn_cerrar = document.getElementById('cerrar_g');
+
 
 let marcadores_bases = [];
 
@@ -61,12 +60,3 @@ $.ajax({ url: 'controladores/mapas.php?action=getBasesExistentes',
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(mymap);
-
-    let circle = L.circle(ejunt, {
-    	color: 'red',
-    	fillColor: '#f03',
-    	fillOpacity: 0.5,
-    	radius: 25
-    }).addTo(mymap).on("click", function (e) {
-        showBaseGraph();
-    });

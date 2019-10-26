@@ -27,3 +27,16 @@
 #cerrar_g {
     float: right;
 }
+.bonificacion {
+    border-radius: 15px;
+    margin: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px;
+}
+.quitar {
+    background-color: orange;
+}
+.poner {
+    background-color: lightblue;
+}
