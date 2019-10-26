@@ -1,17 +1,18 @@
 <?php
+
 require ('../model/cloud/cloud.php');
 
-function getBasesExistentes() {
+function getLimiteBases() {
     $cloud = new Cloud();
-    echo $cloud->getBasesExistentes();
+    echo $cloud->getLimiteBases();
 
 }
 
 if ( isset($_GET['action']) && !empty(isset($_GET['action'])) ) {
   $action = $_GET['action'];
   switch( $action ) {
-    case "getBasesExistentes":{
-       return getBasesExistentes(); 
+    case "getLimiteBases":{
+       return getLimiteBases(); 
     }
 
     default: {
@@ -20,4 +21,3 @@ if ( isset($_GET['action']) && !empty(isset($_GET['action'])) ) {
   }
 }
 
-?>
