@@ -10,12 +10,6 @@ function mostrar_ocupacion(data) {
 
     let bases = data.hits.hits;
     var temp = bases.find(function(e){
-
-        console.log(selected);
-        console.log(e._source.punto);
-        if(e._source.punto == selected){
-            console.log("TRUE");
-        }
         return  e._source.punto == selected ;
     })._source;
 

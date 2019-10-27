@@ -78,10 +78,10 @@ class Cloud {
         return $json_data;
     }
     
-    public function getDataBasesInterval() {
+    public function getDataBasesInterval($id) {
         $json = new JSONGetDataBasesInterval();
         
-        $json_data = $this->make_request($json->makeJson(), $this::URL_INDEX_BASES, "GET");
+        $json_data = $this->make_request($json->makeJson($id), $this::URL_INDEX_BASES, "GET");
         
         return $json_data;
     }

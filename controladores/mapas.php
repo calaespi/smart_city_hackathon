@@ -8,7 +8,7 @@ function getBasesExistentes() {
 
 function getDataBasesInterval($id) {
     $cloud = new Cloud();
-    echo $cloud->getDataBasesInterval((integer)$id);
+    echo $cloud->getDataBasesInterval($id);
 }
 
 if ( isset($_GET['action']) && !empty(isset($_GET['action'])) ) {

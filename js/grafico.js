@@ -2,6 +2,7 @@ var ctx = document.getElementById('myChart').getContext('2d');
 
 function pedir_historial_base(id) {
     let url = 'controladores/mapas.php?action=getDataBasesInterval&id='+id;
+    console.log(url);
     $.ajax({ url,
                  type: 'GET',
                  dataType: 'json',

@@ -13,13 +13,14 @@ function showBaseGraph(circulo) {
 graph.classList.remove('amagar');
 graph.classList.add('mostrar');
 // graph.childNodes[3].src = './img/test_graph.jpeg';
-pedir_historial_base(circulo)
+
+id = circulo.sourceTarget.options.className;
+
+pedir_historial_base(id);
 }
 
 
 function anyadir_marcadores(bases) {
-
-    let id_bases = 58;
 
     bases.forEach((base) => {
         base = base._source;
@@ -36,12 +37,12 @@ function anyadir_marcadores(bases) {
         	color,
         	fillColor: '#fdfdfd',
         	fillOpacity: 0.5,
-        	radius: 25
+        	radius: 25,
+                className: base.id
         }).addTo(mymap).on("click", function (circulo) {
-            showBaseGraph(id_bases);
+            showBaseGraph(circulo);
         });
-        id_bases--;
-        marcadores_bases.push({id: base.id, circle});
+        marcadores_bases.push(circle);
     })
 }
 
