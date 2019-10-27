@@ -1,6 +1,6 @@
 const COMPLETA = 'alert-danger';
 const VACIA = 'alert-warning';
-const BAJA_OCU = 'alert-succes';
+const BAJA_OCU = 'alert-success';
 const ALTA_OCU = 'alert-info';
 
 function crear_alerta(peligro, id, punto, timestamp) {
@@ -43,9 +43,10 @@ $.ajax({
                 crear_alerta(COMPLETA, entrada._source.id, entrada._source.punto, entrada._source.timestamp);
             } else if( entrada._source.ocupados === 0) {
                 crear_alerta(VACIA, entrada._source.id, entrada._source.punto, entrada._source.timestamp);
-            }else {
-                console.log(entrada);
-                crear_alerta(VACIA, entrada._source.id, entrada._source.punto, entrada._source.timestamp);
+            }else if (entrada._source.porcentaje_ocupacion <= 0.1){
+                crear_alerta(BAJA_OCU, entrada._source.id, entrada._source.punto, entrada._source.timestamp);
+            } else if (entrada._source.porcentaje_ocupacion >= 0.9) {
+                crear_alerta(ALTA_OCU, entrada._source.id, entrada._source.punto, entrada._source.timestamp);
             }
         });
     },
