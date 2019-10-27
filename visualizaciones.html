@@ -149,7 +149,7 @@
                 <h3>Alertas</h3>
                 <div id="alertas">
                     Tipo de alerta:<br>
-                    Necessidad de actuación <span class="square alert-danger"></span>
+                    Necesidad de actuación <span class="square alert-danger"></span>
                     WARNING<span class="square alert-warning"></span>
                 </div>
             </div>
@@ -160,6 +160,7 @@
 
 <script src="js/mapa-bicis.js" charset="utf-8"></script>
 <script src="js/prevision-bases.js" charset="utf-8"></script>
+<script src="js/info-bases.js" charset="utf-8"></script>
 <script src="js/alertas.js" charset="utf-8"></script>
 <script>
     document.getElementById("infoSubmit").addEventListener("click", function (i) {
@@ -180,11 +181,6 @@
         });
     })
 
-    function search() {
-
-    }
-
-<script type="text/javascript">
     let nav = document.getElementsByClassName('nav-tabs')[0];
     nav.childNodes[0].addEventListener('click', ()=> {
         //Como es el por defecto se carga directamente

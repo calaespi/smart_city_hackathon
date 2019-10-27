@@ -19,10 +19,20 @@ function mostrar_ocupacion(data) {
         return  e._source.punto == selected ;
     })._source;
 
+    var porcentaje_ocupacion = temp.porcentaje_ocupacion * 100;
+
     ocupacion_actual.innerHTML = temp.ocupados;
     ocupacion_maxima.innerHTML = temp.puestos;
-    ocupacion_media.innerHTML = temp.porcentaje_ocupacion * 100;
-    prevision_ocupacion.innerHTML = "WIP";
+    ocupacion_media.innerHTML = Math.round(porcentaje_ocupacion * 100) / 100;
+    
+    if (temp.porcentaje_ocupacion <= 0.1) {
+        prevision_ocupacion.innerHTML = "OCUPACIÓN BAJA";
+    } else if (temp.porcentaje_ocupacion >= 0.9) {
+        prevision_ocupacion.innerHTML = "OCUPACIÓN ALTA";
+    } else {
+        prevision_ocupacion.innerHTML = "OCUPACION NORMAL";
+    }
+    
 }
 
 // SET UP INFO
