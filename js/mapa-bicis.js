@@ -39,9 +39,10 @@ function anyadir_marcadores(bases) {
 // SET UP MAPA
 const mymap = L.map('map').setView([39.987556,-0.0468827], 13);
 
-function peticion_bases_actuales() {
-    return $.ajax({ url: 'controladores/mapas.php?action=getBasesExistentes',
+//function peticion_bases_actuales() { return
+    $.ajax({ url: 'controladores/mapas.php?action=getBasesExistentes',
                  type: 'GET',
+                 async: false,
                  dataType: 'json',
                  success: function(response) {
                      bases_actuales = response.hits.hits
@@ -51,11 +52,11 @@ function peticion_bases_actuales() {
                     console.log(errorThrown)
                 }
         });
-}
-async peticion_async() {
+//}
+/*async function peticion_async() {
     const res = await peticion_bases_actuales();
 }
-peticion_async();
+peticion_async();*/
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
