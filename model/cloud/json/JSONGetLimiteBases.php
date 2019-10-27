@@ -8,9 +8,18 @@ class JSONGetLimiteBases {
         $res_json = array();
 
         $res_json['query'] = $this->crearQuery();
+        $res_json['sort'] = $this->crearSort();
 
         return $res_json;
 
+    }
+    
+    private function crearSort() {
+        $res_sort = array();
+        
+        $res_sort['timestamp'] = 'desc';
+        
+        return $res_sort;
     }
 
     // Crea el nodo query
