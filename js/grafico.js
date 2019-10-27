@@ -1,4 +1,5 @@
-var ctx = document.getElementById('myChart').getContext('2d');
+var canvas = document.getElementById('myChart');
+var ctx = canvas.getContext('2d');
 
 function pedir_historial_base(id) {
     let url = 'controladores/mapas.php?action=getDataBasesInterval&id='+id;
@@ -19,19 +20,40 @@ function crear_grafico(respuesta) {
 
     let info = [];
     let time = [];
+    let values = [];
+
     let data = respuesta.hits.hits;
 
     for (var i = 0; i < data.length; i++) {
-        let fecha = new Date(data[i]._source.timestam);
-        fecha = fecha.split('T')[1];
-        let hora = fecha.split(':')[0];
+        let fecha = new Date(data[i]._source.timestamp);
 
-        if(!time.find(hora)) {
-            time.push(hora);
-            info.push(data[i]._source.ocupados);
+        if(!values.find(function(e){
+          return e.time == fecha.getHours();
+        })) {
+            values.push({time:fecha.getHours(), info:data[i]._source.ocupados});
+            //time.push(fecha.getHours());
+            //info.push(data[i]._source.ocupados);
         }
     }
 
+    values.sort(function(i, x){
+       if (i.time<x.time) {
+           return -1;
+       } 
+       
+       if (i.time>x.time) {
+           return 1;
+       }
+       
+       return 0;
+    });
+
+  let newArrayLabel = [];
+  let newArrayData = [];
+  values.forEach(function(d){
+    newArrayLabel.push(d.time);
+    newArrayData.push(d.info);
+  });
 
     // let time = data.map((entrada)=>{
     //     let time_array = entrada.key_as_string.split('T');
@@ -54,14 +76,14 @@ function crear_grafico(respuesta) {
     // info = info.filter(function (el) {
     //     return el != null;
     //   });
-
+    ctx.clearRect(0,0,canvas.width, canvas.height);
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: time,
+            labels: newArrayLabel,
             datasets: [{
                 label: 'Ocupación por horas',
-                data: info,
+                data: newArrayData,
                 backgroundColor: 'rgb(155, 200, 155)',
                 borderColor: 'rgba(0, 255, 0, 1)',
                 borderWidth: 1
@@ -85,5 +107,5 @@ function crear_grafico(respuesta) {
         }
     });
     myChart.canvas.parentNode.style.height = '400px';
-    myChart.canvas.parentNode.style.width = '50%';
+    myChart.canvas.parentNode.style.width = '40%';
 }
