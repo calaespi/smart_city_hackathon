@@ -9,8 +9,17 @@ btn_cerrar.addEventListener('click', ()=> {
 let bases_actuales;
 let marcadores_bases = [];
 
+function showBaseGraph(circulo) {
+graph.classList.remove('amagar');
+graph.classList.add('mostrar');
+// graph.childNodes[3].src = './img/test_graph.jpeg';
+pedir_historial_base(circulo)
+}
+
 
 function anyadir_marcadores(bases) {
+
+    let id_bases = 58;
 
     bases.forEach((base) => {
         base = base._source;
@@ -28,17 +37,12 @@ function anyadir_marcadores(bases) {
         	fillColor: '#fdfdfd',
         	fillOpacity: 0.5,
         	radius: 25
-        }).addTo(mymap).on("click", function (e) {
-            showBaseGraph();
+        }).addTo(mymap).on("click", function (circulo) {
+            showBaseGraph(id_bases);
         });
-        marcadores_bases.push(circle);
+        id_bases--;
+        marcadores_bases.push({id: base.id, circle});
     })
-}
-function showBaseGraph() {
-graph.classList.remove('amagar');
-graph.classList.add('mostrar');
-
-graph.childNodes[3].src = './img/test_graph.jpeg';
 }
 
 // SET UP MAPA
