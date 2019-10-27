@@ -2,7 +2,7 @@
 function mostrar_ocupacion(data) {
     var ocupacion_actual = document.getElementById("InfoBasesOcupacionActual");
     var ocupacion_maxima = document.getElementById("InfoBasesOcupacionMaxima");
-    var ocupacion_media = document.getElementById("InfoBasesOcupacionMedia");
+    //var ocupacion_media = document.getElementById("InfoBasesOcupacionMedia");
     var prevision_ocupacion = document.getElementById("InfoBasesPrevisionOcupacion");
 
     var e = document.getElementById("selectBase");
@@ -17,7 +17,7 @@ function mostrar_ocupacion(data) {
 
     ocupacion_actual.innerHTML = temp.ocupados;
     ocupacion_maxima.innerHTML = temp.puestos;
-    ocupacion_media.innerHTML = Math.round(porcentaje_ocupacion * 100) / 100;
+    //ocupacion_media.innerHTML = Math.round(porcentaje_ocupacion * 100) / 100;
     
     if (temp.porcentaje_ocupacion <= 0.1) {
         prevision_ocupacion.innerHTML = "OCUPACIÓN BAJA";

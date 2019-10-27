@@ -82,7 +82,7 @@ function crear_grafico(respuesta) {
         data: {
             labels: newArrayLabel,
             datasets: [{
-                label: 'Ocupación por horas',
+                label: 'Bicis disponibles',
                 data: newArrayData,
                 backgroundColor: 'rgb(155, 200, 155)',
                 borderColor: 'rgba(0, 255, 0, 1)',
