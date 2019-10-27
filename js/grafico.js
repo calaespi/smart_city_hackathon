@@ -18,13 +18,30 @@ function pedir_historial_base(id) {
 function crear_grafico(respuesta) {
 
     let valores = [];
-    let data = respuesta.aggregations.buckets;
+    let data = respuesta.aggregations[3].buckets;
+    
     let time = data.map((entrada)=>{
-        return entrada.key_as_string.splite('T')[1].splite(':')[0];
+        let time_array = entrada.key_as_string.split('T');
+        if (time_array[0] !== '1970-01-19') {
+            return time_array[1].split(':')[0];
+        }
     });
+    
+    time = time.filter(function (el) {
+        return el != null;
+      });
+    
     let info = data.map((entrada)=> {
-        return entrada.doc_count;
+        let time_array = entrada.key_as_string.split('T');
+        if (time_array[0] !== '1970-01-19') {
+            return entrada.doc_count;
+        }
     });
+    
+    info = info.filter(function (el) {
+        return el != null;
+      });
+    
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -55,5 +72,5 @@ function crear_grafico(respuesta) {
         }
     });
     myChart.canvas.parentNode.style.height = '400px';
-    myChart.canvas.parentNode.style.width = '400px';
+    myChart.canvas.parentNode.style.width = '50%';
 }
