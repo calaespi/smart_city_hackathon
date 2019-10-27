@@ -1,18 +1,8 @@
-let graph = document.getElementById('BaseGraph');
-let btn_cerrar = document.getElementById('cerrar_g');
-
-btn_cerrar.addEventListener('click', ()=> {
-    graph.classList.remove('mostrar');
-    graph.classList.add('amagar');
-})
 
 let bases_actuales;
 let marcadores_bases = [];
 
 function showBaseGraph(circulo) {
-graph.classList.remove('amagar');
-graph.classList.add('mostrar');
-// graph.childNodes[3].src = './img/test_graph.jpeg';
 
 id = circulo.sourceTarget.options.className;
 
