@@ -60,3 +60,11 @@ h3 {
     text-decoration: underline;
     font-size: 1.3em;
 }
+#InfoBasesResult h4{
+    display: inline-block;
+    width: wrap-content;
+    margin-bottom: 25px;
+}
+#infoSubmit {
+    margin-top: 10px;
+}

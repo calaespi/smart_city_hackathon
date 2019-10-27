@@ -27,7 +27,7 @@
         <ul class="nav nav-tabs">
             <li role="presentation" class="active"><a href="#1" data-toggle="tab">Mapa disponibilidad</a></li>
             <li role="presentation"><a href="#2" data-toggle="tab">Bases bonificadas</a></li>
-            <li role="presentation"><a href="#3" data-toggle="tab">ALFJADLFKJ</a></li>
+            <li role="presentation"><a href="#3" data-toggle="tab">Infromación</a></li>
             <li role="presentation"><a href="#4" data-toggle="tab">Alertas</a></li>
         </ul>
         <div class="container">
@@ -63,25 +63,126 @@
                     </div>
                 </div>
                 <div class="tab-pane container" id="3">
-                    <h3>ASÑLKDFJADLKS</h3>
-                </div>
-                <div class="tab-pane container" id="4">
-                    <h3>Alertas</h3>
-                    <div id="alertas">
-                        Tipo de alerta:<br>
-                        Necessidad de actuación <span class="square alert-danger"></span>
-                        WARNING<span class="square alert-warning"></span>
-                    </div>
+                    <h3>Información de las Bases</h3>
+               <div class="row">
+                   <div class="col-sm-6">
+                       <h4>Seleccione una base</h4>
+                       <form action="" method="get" id="InfoForm" onsubmit="search()">
+                           <select name="baselist" form="InfoForm" class="form-control" id="selectBase">
+                               <option value="UJI - FCHS">UJI - FCHS</option>
+                               <option value="ESTACIÃ³N DE FERROCARRIL Y AUTOBUSES">ESTACIÓN DE FERROCARRIL Y AUTOBUSES</option>
+                               <option value="COLÃ³N">COLÓN</option>
+                               <option value="PASEO BUENAVISTA-GRAO">PASEO BUENAVISTA-GRAO</option>
+                               <option value="HOSPITAL GENERAL">HOSPITAL GENERAL</option>
+                               <option value="PLAZA DE LA LIBERTAD">PLAZA DE LA LIBERTAD</option>
+                               <option value="PLAZA TEODORO IZQUIERDO">PLAZA TEODORO IZQUIERDO</option>
+                               <option value="PLAZA PRIMER MOLÃ­">PLAZA PRIMER MOLÍ</option>
+                               <option value="PATRONAT DESPORTS">PATRONAT DESPORTS</option>
+                               <option value="PLAZA DOCTOR MARAÃ±Ã³N">PLAZA DOCTOR MARAÑÓN</option>
+                               <option value="PLAZA JUEZ BORRULL">PLAZA JUEZ BORRULL</option>
+                               <option value="ESCUELA OFICIAL DE IDIOMAS">ESCUELA OFICIAL DE IDIOMAS</option>
+                               <option value="AVDA. BARCELONA - ANTIGUA ESTACIÃ³N">AVDA. BARCELONA - ANTIGUA ESTACIÓN</option>
+                               <option value="PLAZA MAESTRAZGO">PLAZA MAESTRAZGO</option>
+                               <option value="HUERTO SOGUEROS">HUERTO SOGUEROS</option>
+                               <option value="HOSPITAL PROVINCIAL">HOSPITAL PROVINCIAL</option>
+                               <option value="PLAZA DEL REAL">PLAZA DEL REAL</option>
+                               <option value="MUSEO BELLAS ARTES">MUSEO BELLAS ARTES</option>
+                               <option value="PLANETARIO">PLANETARIO</option>
+                               <option value="PLAZA MURALLA LIBERAL">PLAZA MURALLA LIBERAL</option>
+                               <option value="PISCINA OLÃ­MPICA">PISCINA OLÍMPICA</option>
+                               <option value="POLIESPORTIU CIUTAT DE CASTELLÃ³">POLIESPORTIU CIUTAT DE CASTELLÓ</option>
+                               <option value="PASEO DE LA UNIVERSIDAD">PASEO DE LA UNIVERSIDAD</option>
+                               <option value="ALCORA">ALCORA</option>
+                               <option value="CHENCHO">CHENCHO</option>
+                               <option value="DONOSO CORTES">DONOSO CORTES</option>
+                               <option value="RIO ADRA">RIO ADRA</option>
+                               <option value="PLAZA BOTANICO CALDUCH">PLAZA BOTANICO CALDUCH</option>
+                               <option value="PARQUE GEOLOGO JOSÃ© ROYO">PARQUE GEOLOGO JOSÉ ROYO</option>
+                               <option value="PLAZA FERNANDO HERRERO TEJEDOR">PLAZA FERNANDO HERRERO TEJEDOR</option>
+                               <option value="GINJOLS">GINJOLS</option>
+                               <option value="AVDA. FERRANDIS SALVADOR">AVDA. FERRANDIS SALVADOR</option>
+                               <option value="AVDA. SOS BAYNAT">AVDA. SOS BAYNAT</option>
+                               <option value="AVDA. DEL REY">AVDA. DEL REY</option>
+                               <option value="RIO NILO">RIO NILO</option>
+                               <option value="TOMBATOSSALS">TOMBATOSSALS</option>
+                               <option value="PLAZA CARDONA VIVES">PLAZA CARDONA VIVES</option>
+                               <option value="PASEO MORELLA">PASEO MORELLA</option>
+                               <option value="PARQUE DEL OESTE">PARQUE DEL OESTE</option>
+                               <option value="AV. DEL MAR">AV. DEL MAR</option>
+                               <option value="PLAZA LA PAZ">PLAZA LA PAZ</option>
+                               <option value="AVDA VALL D`UXO-CARDENAL COSTA">AVDA VALL D`UXO-CARDENAL COSTA</option>
+                               <option value="FERNANDO EL CATÃ³LICO">FERNANDO EL CATÓLICO</option>
+                               <option value="SAN ROQUE">SAN ROQUE</option>
+                               <option value="GRAN VIA">GRAN VIA</option>
+                               <option value="UJI - ESTCE">UJI - ESTCE</option>
+                               <option value="UJI - FCJE">UJI - FCJE</option>
+                               <option value="PLAZA CLAVE">PLAZA CLAVE</option>
+                               <option value="CASAL JOVE">CASAL JOVE</option>
+                               <option value="AVDA. VALENCIA (GRUPO LIDÃ³N)">AVDA. VALENCIA (GRUPO LIDÓN)</option>
+                               <option value="SAN AGUSTÃ­N">SAN AGUSTÍN</option>
+                               <option value="AV. DEL MAR - RECINTO DE FERIAS">AV. DEL MAR - RECINTO DE FERIAS</option>
+                               <option value="FAROLA">FAROLA</option>
+                               <option value="UJI - VIVERO EMPRESARIAL">UJI - VIVERO EMPRESARIAL</option>
+                               <option value="BICICAS">BICICAS</option>
+                               <option value="TIRANT LO BLANCH - PINAR">TIRANT LO BLANCH - PINAR</option>
+                               <option value="GRUPO LOURDES">GRUPO LOURDES</option>
+                               <option value="PLAZA SEQUIOL">PLAZA SEQUIOL</option>
+                               <option value="UJI - FCS">UJI - FCS</option>
+                           </select>
+
+                           <span id="infoSubmit" class="btn btn-primary" >Buscar</span>
+                       </form>
+                   </div>
+                   <div class="col-sm-6" id="InfoBasesResult">
+                       <h4>Ocupación actual: </h4>
+                       <h4 class="InfoBasesH4" id="InfoBasesOcupacionActual"></h4><br>
+                       <h4>Ocupación máxima: </h4>
+                       <h4 class="InfoBasesH4" id="InfoBasesOcupacionMaxima"></h4><br>
+                       <h4>Ocupación media: </h4>
+                       <h4 class="InfoBasesH4" id="InfoBasesOcupacionMedia"></h4><br>
+                       <h4>Prevision ocupación: </h4>
+                       <h4 class="InfoBasesH4" id="InfoBasesPrevisionOcupacion"></h4><br>
+                   </div>
                 </div>
             </div>
-
+            <div class="tab-pane container" id="4">
+                <h3>Alertas</h3>
+                <div id="alertas">
+                    Tipo de alerta:<br>
+                    Necessidad de actuación <span class="square alert-danger"></span>
+                    WARNING<span class="square alert-warning"></span>
+                </div>
+            </div>
         </div>
+    </div>
 
 </body>
 
 <script src="js/mapa-bicis.js" charset="utf-8"></script>
 <script src="js/prevision-bases.js" charset="utf-8"></script>
 <script src="js/alertas.js" charset="utf-8"></script>
+<script>
+    document.getElementById("infoSubmit").addEventListener("click", function (i) {
+        i.preventDefault();
+        console.log(1);
+        // SET UP INFO
+        $.ajax({
+            url: 'controladores/infobases.php?action=getBasesExistentes',
+            type: 'get',
+            dataType: 'json',
+            success: function (response) {
+                console.log(response);
+                mostrar_ocupacion(response);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log(errorThrown)
+            }
+        });
+    })
+
+    function search() {
+
+    }
 
 <script type="text/javascript">
     let nav = document.getElementsByClassName('nav-tabs')[0];
