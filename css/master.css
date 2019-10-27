@@ -1,3 +1,6 @@
+body {
+    /*background-color: Gainsboro;*/
+}
 .mostrar {
     display: block;
 }
@@ -49,4 +52,11 @@
     height: 10px;
     width: 10px;
     border-radius: 10px;
+}
+h3 {
+    display: inline-block;
+}
+.actual {
+    text-decoration: underline;
+    font-size: 1.3em;
 }

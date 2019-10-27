@@ -18,12 +18,17 @@
     <body>
         <div class="titulo">
             <h1>Análisis con ElasticSearch</h1>
-            <h3>VISUALIZACIONES</h3>
+            <a href="index.php">
+                <h3>INICIO</h3>
+            </a>
+            /
+                <h3 class="actual">VISUALIZACIONES</h3>
         </div>
         <ul class="nav nav-tabs">
             <li role="presentation" class="active"><a href="#1" data-toggle="tab">Mapa disponibilidad</a></li>
             <li role="presentation"><a href="#2" data-toggle="tab">Bases bonificadas</a></li>
             <li role="presentation"><a href="#3" data-toggle="tab">ALFJADLFKJ</a></li>
+            <li role="presentation"><a href="#4" data-toggle="tab">Alertas</a></li>
         </ul>
         <div class="container">
 
@@ -60,6 +65,14 @@
                 <div class="tab-pane container" id="3">
                     <h3>ASÑLKDFJADLKS</h3>
                 </div>
+                <div class="tab-pane container" id="4">
+                    <h3>Alertas</h3>
+                    <div id="alertas">
+                        Tipo de alerta:<br>
+                        Necessidad de actuación <span class="square alert-danger"></span>
+                        WARNING<span class="square alert-warning"></span>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -68,6 +81,7 @@
 
 <script src="js/mapa-bicis.js" charset="utf-8"></script>
 <script src="js/prevision-bases.js" charset="utf-8"></script>
+<script src="js/alertas.js" charset="utf-8"></script>
 
 <script type="text/javascript">
     let nav = document.getElementsByClassName('nav-tabs')[0];

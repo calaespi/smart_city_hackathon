@@ -45,7 +45,7 @@ graph.childNodes[3].src = './img/test_graph.jpeg';
 const mymap = L.map('map').setView([39.987556,-0.0468827], 13);
 
 $.ajax({ url: 'controladores/mapas.php?action=getBasesExistentes',
-             type: 'POST',
+             type: 'GET',
              dataType: 'json',
              success: function(response) {
                  bases_actuales = response.hits.hits
