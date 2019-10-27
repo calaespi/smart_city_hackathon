@@ -4,7 +4,11 @@ require ('../model/cloud/cloud.php');
 function getBasesExistentes() {
     $cloud = new Cloud();
     echo $cloud->getBasesExistentes();
+}
 
+function getDataBasesInterval($id) {
+    $cloud = new Cloud();
+    echo $cloud->getDataBasesInterval((integer)$id);
 }
 
 if ( isset($_GET['action']) && !empty(isset($_GET['action'])) ) {
@@ -12,7 +16,11 @@ if ( isset($_GET['action']) && !empty(isset($_GET['action'])) ) {
   switch( $action ) {
     case "getBasesExistentes":{
        return getBasesExistentes(); 
-    }
+    } break;
+    
+    case "getDataBasesInterval":{
+        return getDataBasesInterval($_GET['id']);
+    } break;
 
     default: {
       

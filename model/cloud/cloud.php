@@ -4,7 +4,7 @@
 require (__DIR__.'/json/JSONGetBasesExistentes.php');
 require (__DIR__.'/json/JSONGetLimiteBases.php');
 require (__DIR__.'/json/JSONGetAverageBases.php');
-
+require (__DIR__.'/json/JSONGetDataBasesInterval.php');
 // Clase que realizara peticiones a la nube
 class Cloud {
 
@@ -72,6 +72,14 @@ class Cloud {
     
     public function getAverageBases() {
         $json = new JSONGetAverageBases();
+        
+        $json_data = $this->make_request($json->makeJson(), $this::URL_INDEX_BASES, "GET");
+        
+        return $json_data;
+    }
+    
+    public function getDataBasesInterval() {
+        $json = new JSONGetDataBasesInterval();
         
         $json_data = $this->make_request($json->makeJson(), $this::URL_INDEX_BASES, "GET");
         
